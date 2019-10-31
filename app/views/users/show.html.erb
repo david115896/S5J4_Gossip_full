@@ -19,22 +19,29 @@
 		</div>
 			<div class="divider-custom-line"></div>
 		</div>
+
+
+	
 	
 		<div class="row">
 			<div class="col-8">
 				<div class="row">
 				        <% @gossips_user.each do |gossip| %>
-				                <div class="card mb-3" style="width: 13rem;">
-		                	                <div class="card-body">
-                		        	                <h5 class="card-title"> <%= gossip.title %></h5>
-			                                        <h6 class="card-subtitle mb-2 text-muted">Autheur : <%= gossip.user.first_name %></h6>
-                        		                        <%= link_to "Afficher le detail du gossip", gosssip_path(gossip.id) %>
-
-							</div>
-			        	        </div>
-				        <% end %>
+		     			 <div class="card m-2" style="width: 16rem;">
+			    			<div class="card-body">
+				  			 	<h5 class="card-title"> <%= gossip.title %></h5>
+  				  				<h6 class="card-subtitle mb-2 text-muted">Auteur : <%= gossip.user.first_name %></h6>
+              					<h6 class="card-subtitle mb-2 text-muted"> <%= "#{gossip.comments.count} commentaires / " %> <%= "#{gossip.likes.count} " %> <i class="fas fa-heart"></i>  </h6>
+             					 <% if !@gossips_likes.include?(gossip.id) %>
+                					<%= form_for :like, url: gosssip_likes_path(gossip) do |f| %>
+				        			<button class="">  <i class="fas fa-heart"></i> Like</i> </button>
+				       				 <%end%> 
+             					 <%end%>
+            				  <%= link_to "Afficher le detail du gossip", gosssip_path(gossip.id) %>
+			     			</div>
+  		   				 </div>
+	    				  <% end %>
 			      </div>
-
 			</div>
   			<div class="col-4">
 		      		<div class="jumbotron">

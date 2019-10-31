@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
 	resources :team, only: [:index]
 
-	resources :gosssips
+	resources :gosssips do
+		resources :likes, only: [:create, :destroy]
+	end
 
 	resources :users
 
@@ -19,5 +21,5 @@ Rails.application.routes.draw do
 	
 	resources :sessions, only: [:new, :create, :destroy]
 
-	resources :likes, only: [:create, :destroy]
+
 end

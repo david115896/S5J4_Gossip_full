@@ -10,6 +10,8 @@ class CitiesController < ApplicationController
  
    def show
         @gossips_city = Gosssip.joins(:user).where(:users => { :city => @city })
+        @gossips_likes = Like.gossips(current_user.id)
+
 
         # puts @gossips_city = Gosssip.where(city: @city)
         

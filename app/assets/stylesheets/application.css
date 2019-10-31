@@ -268,6 +268,7 @@ select.form-control:focus::-ms-value {
 .body-blue {
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF);
+  padding-bottom: 30rem;
 }
 
 
@@ -395,4 +396,9 @@ select.form-control:focus::-ms-value {
   .form-label-group input:-ms-input-placeholder {
     color: #777;
   }
+}
+
+
+.copyright {
+  background-color: #1a252f;
 }

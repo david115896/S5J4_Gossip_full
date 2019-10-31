@@ -36,7 +36,13 @@
 	   			<a class="btn btn-danger btn-lg" href="<%= gosssip_path(@gossip.id) %>" role="button" data-confirm="Attention la suppression est irreversible" data-method="DELETE">Supprimer le gossip</a>
 			<%end%>
 
-			<a  class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc" href="<%= likes_path(@gossip.id)%>">  <i class="fas fa-heart"></i> Like</i> </a>
+			<% if @like.empty? %>
+				<%= form_for :like, url: gosssip_likes_path(@gossip) do |f| %>
+					<button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc">  <i class="fas fa-heart"></i> Like</i> </button>
+				<%end%>
+			<%else%>
+				<a class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc" href="<%= gosssip_like_path(@gossip.id) %>" role="button" data-method="DELETE">Supprimer le gossip</a>
+			<%end%>
 
 		</hr>
 	</div>

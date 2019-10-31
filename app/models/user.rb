@@ -13,7 +13,7 @@ class User < ApplicationRecord
 	has_many :gosssips
 	has_many :comments
 	has_many :gosssips, through: :comments
-	has_many :likes
+	has_many :likes, dependent: :destroy
 	has_many :gosssips, through: :likes
 
 end

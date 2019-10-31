@@ -7,6 +7,9 @@ class GosssipsController < ApplicationController
 
   def index
 	@gossips = Gosssip.all
+	@gossips_likes = Like.gossips(current_user.id)
+	#@likes = Like.where(user_id: current_user.id)
+
 	# Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
   end
 
@@ -14,6 +17,7 @@ class GosssipsController < ApplicationController
 	@gossip = Gosssip.find(params[:id])
 	@comments = Comment.where(gosssip: @gossip)
 	@comment = Comment.new
+	puts @like = Like.where(user_id: current_user.id, gosssip_id: @gossip)
 
 	# Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
   end

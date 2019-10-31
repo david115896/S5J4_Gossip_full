@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def show
         @user = User.find(params[:id])
         @gossips_user = Gosssip.where(user: @user)
+        @gossips_likes = Like.gossips(current_user.id)
+
 	
 	# Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
   end
