@@ -5,8 +5,8 @@ class TextValidator < ActiveModel::EachValidator
 			record.errors.add(attribute, 'doit avoir 2 caracteres minimum')
 		end
 	   
-		unless value =~ /\A[a-zA-Z0-9\s\.\(\)\-\*\']+\z/
+		unless value =~ /\A[a-zA-Z0-9\s\.\,\(\)\-\*\'\_\$\?\!\@\#\%\&\*\(\[\])]+\z/
 		       record.errors.add(attribute, 'ne doit pas contenir de caracteres speciaux')
 		end
 	end
-end
+end/\A[a-zA-Z0-9\s\.\,\(\)\-\*\'\_\$\?\!\@\#\%\&\*\(\[\])]+\z/
