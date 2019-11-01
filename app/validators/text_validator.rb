@@ -9,4 +9,4 @@ class TextValidator < ActiveModel::EachValidator
 		       record.errors.add(attribute, 'ne doit pas contenir de caracteres speciaux')
 		end
 	end
-end/\A[a-zA-Z0-9\s\.\,\(\)\-\*\'\_\$\?\!\@\#\%\&\*\(\[\])]+\z/
+end
